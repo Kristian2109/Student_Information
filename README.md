@@ -2,13 +2,13 @@
 The project imitates a student database
 
 ## Prerequisites:
-  -- Primitive datatypes, arrays, vectors, strings, classes and STL functions.
+  - Primitive datatypes, arrays, vectors, strings, classes and STL functions.
 
 ## Approach
-  -- First all students are loaded from the text file and stored in a vector.
-  -- The user can choose from the options and work with the data.
-  -- After the successful completion (quitting), the text file is overwritten with the new information.
-  -- Every incorrect input will be detected except the ID number and the discipline, as they aren't strictly specified.
+  - First all students are loaded from the text file and stored in a vector.
+  - The user can choose from the options and work with the data.
+  - After the successful completion (quitting), the text file is overwritten with the new information.
+  - Every incorrect input will be detected except the ID number and the discipline, as they aren't strictly specified.
 
 ## Functionalities
 1. **Supports up to 8 groups from a given specialty**
