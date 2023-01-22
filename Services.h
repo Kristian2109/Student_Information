@@ -38,7 +38,6 @@ void RegisterStudent(vector<Student>& students) {
 	}
 	if (IsValidStudentData(student)) {
 		SetDisciplines(student);
-		AppendStudentToFile(student);
 		students.push_back(student);
 		PrintCenterLine("You've succesfully registered ");
 		cout << student.getName() << ".";
@@ -112,7 +111,9 @@ void ChangeStudentData(vector<Student>& students, Student& student, int indexStu
 		case 'A':
 		case 'a':
 			SetDiscipline(student);
+			PrintCenterLine("The actual disciplines are:  \n");
 			PrintDisciplines(student);
+			Pause();
 			break;
 		case 'D':
 		case 'd':
@@ -138,6 +139,11 @@ void ChangeStudentData(vector<Student>& students, Student& student, int indexStu
 }
 
 void ExecuteChangeStudentData(vector<Student>& students) {
+	if (students.size() == 0) {
+		PrintCenterLine("This specialty is empty!");
+		Pause();
+		return;
+	}
 	PrintSymbol('=', 120);
 	PrintCenterLine("Give the ID:  ");
 	string searchedId; getline(cin, searchedId);
@@ -152,6 +158,12 @@ void ExecuteChangeStudentData(vector<Student>& students) {
 
 void ShowStudents(vector<Student> students, int forGroup) {
 	system("CLS");
+	if (students.size() == 0) {
+		PrintCenterLine("This specialty is empty!");
+		Pause();
+		return;
+	}
+	ExecuteSort(students);
 	int group = 0;
 	if (forGroup) {
 		PrintCenterLine("Which group you want to see?:  ");

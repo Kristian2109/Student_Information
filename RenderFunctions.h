@@ -5,10 +5,24 @@
 #include "HelperFunctions.h"
 using namespace std;
 
-void RenderLogo() {
+void RenderGreeting() {
 	PrintSymbol('\n', 3);
 	PrintSymbol('=', 120); cout << '\n';
 	cout << "\t\t\t\t\t    HELLO TO STUDENT INFORMATION!\n";
+}
+
+void RenderGreeting(string specialty) {
+	PrintSymbol('\n', 3);
+	PrintSymbol('=', 120); cout << '\n';
+	for (int i = 1; i < specialty.size(); i++) {
+		if (specialty.at(i) == 32) continue;
+		specialty.at(i) -= 32;
+	}
+	cout << "\t\t\t\t\t    WELCOME TO " << specialty << "!\n";
+}
+
+void RenderLogo(string specialty) {
+	RenderGreeting(specialty);
 	PrintCenterLine("Choose one option.");
 	PrintCenterLine("R - register student");
 	PrintCenterLine("G - see sorted group");
@@ -66,3 +80,4 @@ void RenderStudentDataWithOptions(Student student) {
 	PrintDisciplines(student);
 	PrintSymbol('=', 120);
 }
+

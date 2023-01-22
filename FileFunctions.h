@@ -72,8 +72,8 @@ void SplitStudentData(string rawData, string& name, string& idNumber, double& gr
 	}
 }
 
-void GetDataFromFile(vector<Student>& students) {
-	ifstream file(DATA_FILE, ios::in);
+void GetDataFromFile(vector<Student>& students, string fileName) {
+	ifstream file(fileName, ios::in);
 	vector<string> rawStudentData (MAX_STUDENTS_COUNT);
 	
 	if (!file.is_open()) return;
@@ -111,8 +111,8 @@ string NameWithoutSpaces(string name) {
 	return result;
 }
 
-void AppendStudentToFile(Student student) {
-	ofstream file(DATA_FILE, ios::out | ios::app);
+void AppendStudentToFile(Student student, string fileName) {
+	ofstream file(fileName, ios::out | ios::app);
 	string name = NameWithoutSpaces(student.getName());
 	file << name << ';' << student.getId() << ';'
 		 << student.getGroup();
@@ -132,10 +132,10 @@ void AppendStudentToFile(Student student) {
 	file.close();
 }
 
-void OverwriteFile(vector<Student> students) {
-	ofstream file(DATA_FILE, ios::out);
+void OverwriteFile(vector<Student> students, string fileName) {
+	ofstream file(fileName, ios::out);
 	file.close();
 	for (Student student : students) {
-		AppendStudentToFile(student);
+		AppendStudentToFile(student, fileName);
 	}
 }

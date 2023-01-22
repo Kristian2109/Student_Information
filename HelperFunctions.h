@@ -5,7 +5,7 @@
 
 #include "Student.h"
 using namespace std;
-const int NUM_TABS_CENTER = 6;
+const int NUM_TABS_CENTER = 5;
 
 bool isHighLetter(char letter) {
 	return (letter >= 'A' && letter <= 'Z');
@@ -106,3 +106,4 @@ void SortAllStudents(vector<Student>& students, string criteria) {
 		}
 	}
 }
+
